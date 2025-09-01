@@ -1,0 +1,73 @@
+/sap/opu/odata/sap/ZCDS_GET_ACCDOC_CDS/ZCDS_GET_ACCDOC?$filter=PostingDate ge datetime'2025-07-01T00:00:00'&$format=json
+
+
+{
+        "companycode": "1010",
+        "documentnumber": "RN_20250818_185446",
+        "environment": "DEVELOPMENT",
+        "fpostingdate": "01/01/2024",
+        "journaldoctype": "SA",
+        "mailid": "ramani.nagarajan@in.ibm.com",
+        "mappingrule": "39911000,12041000##12041000,12122000##12041100,12122000##12041200,12122000##12122000,12122000##12200100,12041000",
+        "reportfolder": "TEMP",
+        "requestor": "ramani.nagarajan@in.ibm.com",
+        "scenarionumber": "4",
+        "tegaticfilewithpath": "",
+        "tpostingdate": "08/18/2025",
+        "userid_sap": "RAMANIN"
+    },
+
+{
+   "definitionId": "eu10.ibm-lss.journalreclassificationandpostinglatestv11.gL_Reclassification",
+    "context": 
+{
+        "mailid": "ramani.nagarajan@in.ibm.com",
+        "requestor": "ramani.nagarajan@in.ibm.com",
+        "userid_sap": "RAMANIN",
+        "companycode": "1010",
+        "environment": "DEVELOPMENT",
+        "mappingrule": "12122000,12122000##39911000,12041000",
+        "fpostingdate": "2024-03-01T15:19:17.260+05:30",
+        "reportfolder": "C:\\TEMP\\5AK",
+        "tpostingdate": "2025-07-26T15:19:17.278+05:30",
+        "documentnumber": "RN_20250726_151917",
+        "journaldoctype": "SA",
+        "scenarionumber": "1",
+        "tegaticfilewithpath": ""
+    }
+}	
+
+
+
+{
+  definitionId: "eu10.ibm-lss.journalreclassificationandpostinglatestv11.gL_Reclassification",
+  context: {
+    approver: "",
+    requestor: "",
+    userid_sap: "RAMANIN",
+    companycode: "",
+    environment: "",
+    mappingrule: "12122000,12122000##39911000,12041000",
+    fpostingdate: "",
+    reportfolder: "TEMP",
+    tpostingdate: "",
+    ocumentnumber: "",
+    journaldoctype: "SA",
+    scenarionumber: "1",
+    tegaticfilewithpath: ""
+  }
+}
+
+
+
+	
+	Destination_post					F23HTTPS_CLOSING_API_POSTING
+	Dev_server_post						F23HTTPS_CLOSING_API_POSTING
+	Destination_read					F23HTTPS_CLOSING_API_READING
+					
+
+	Destination_Saviynt_Bearertoken		F23HTTPS_SAVIYNT_API_BEARER
+	Destination_Saviynt_Getuser			F23HTTPS_SAVIYNT_API_GETUSER
+	Destiation_metadata_reading			F23HTTPS_METADATA_API_READING
+	
+	DestinationDocStore					sap_process_automation_document_store
