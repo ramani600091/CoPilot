@@ -1,0 +1,31 @@
+@AbapCatalog.sqlViewName: 'ZUSRCC'
+@AbapCatalog.compiler.compareFilter: true
+@AbapCatalog.preserveKey: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Get CompanyCode and User Mail by User-id'
+@OData.publish: true
+define view ZCDS_GET_USRCC
+  as select distinct from agr_1252 as L1
+    inner join agr_users as L2
+      on  L1.agr_name   = L2.agr_name
+      and L2.from_dat  <= $session.system_date
+      and L2.to_dat    >= $session.system_date
+
+    inner join t001 as R1
+      on ( L1.low = '*' or L1.low = R1.bukrs or L1.high = R1.bukrs )
+     and  L1.varbl   = '$BUKRS'
+     and  L1.counter = '000008'
+
+    inner join usr21 as U1
+      on L2.uname = U1.bname
+
+    /* use the user’s personal number and pick the default, valid e-mail */
+    left outer join adr6 as A1
+      on  A1.persnumber = U1.persnumber
+
+{
+  key R1.bukrs      as CompanyCode,
+      R1.butxt      as CompanyName,
+      L2.uname      as UserId,
+      A1.smtp_addr  as UserMail
+}
